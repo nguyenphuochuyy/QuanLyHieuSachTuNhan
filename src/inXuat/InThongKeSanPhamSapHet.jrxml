@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.20.6.final using JasperReports Library version 6.20.6-5c96b6aa8a39ac1dc6b6bea4b81168e16dd39231  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ThongKeSanPhamSapHet" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="1c2eb7fe-6614-4626-8ff3-3ef1c25f3858">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="QuanLyHieuSach"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<queryString>
+		<![CDATA[SELECT "TenSanPham",
+		FORMAT(CAST("GiaBan" AS float), 'N0') AS GiaBanF,
+	"LoaiSanPham",
+	"SoLuong"
+FROM dbo."SanPham" where SOluong <= 50 
+order by LoaiSanPham]]>
+	</queryString>
+	<field name="TenSanPham" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="TenSanPham"/>
+		<property name="com.jaspersoft.studio.field.label" value="TenSanPham"/>
+	</field>
+	<field name="GiaBanF" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="GiaBanF"/>
+		<property name="com.jaspersoft.studio.field.label" value="GiaBanF"/>
+	</field>
+	<field name="LoaiSanPham" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="LoaiSanPham"/>
+		<property name="com.jaspersoft.studio.field.label" value="LoaiSanPham"/>
+	</field>
+	<field name="SoLuong" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="SoLuong"/>
+		<property name="com.jaspersoft.studio.field.label" value="SoLuong"/>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="94" splitType="Stretch">
+			<staticText>
+				<reportElement x="60" y="-10" width="443" height="30" uuid="13f661d1-e6a0-47e1-b2cb-880dcd238b9d"/>
+				<textElement textAlignment="Center">
+					<font size="20" isBold="true"/>
+				</textElement>
+				<text><![CDATA[HIỆU SÁCH TƯ NHÂN NHÓM 15
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="60" y="20" width="429" height="40" uuid="38f0dd40-85f5-4a35-a014-8983e8e1a366"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[12 Nguyễn Văn Bảo, Phường 4, Gò Vấp, Thành phố Hồ Chí Minh
+Hotline: 0354783993]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="59" y="59" width="429" height="29" uuid="e3f28b7e-ed7d-433c-83ab-9db2cc022b3b"/>
+				<textElement textAlignment="Center">
+					<font size="20" isBold="true"/>
+				</textElement>
+				<text><![CDATA[THỐNG KÊ SẢN PHẨM SẮP HẾT]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="34" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="2" width="250" height="30" uuid="7ee8bf28-bda2-4de6-a786-fcf3df150e51">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="ccd548f2-1811-47ca-b156-20ad968b0539"/>
+				</reportElement>
+				<text><![CDATA[Tên sản phẩm]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="250" y="0" width="100" height="30" uuid="c900223a-1420-4b96-a897-84fe3dc6b592">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e677d85d-6496-4f42-96b0-75eb5d9eb98c"/>
+				</reportElement>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[Giá bán]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="370" y="0" width="80" height="30" uuid="952bcf1f-ae5c-4744-9b02-acc65ab983cc">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="efd98bba-c397-458a-8877-b029061a4700"/>
+				</reportElement>
+				<text><![CDATA[Số lượng còn]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="460" y="0" width="100" height="30" uuid="67c6c99b-a3ec-4528-bb4c-d453f3844ac6">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="eac2f3d1-056b-42a8-a53c-8a5dedb5dfaf"/>
+				</reportElement>
+				<text><![CDATA[Loại sản phẩm]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="32" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="1" width="250" height="30" uuid="003f0b8b-245d-4d22-a7bf-3f57fc7302c1">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="ccd548f2-1811-47ca-b156-20ad968b0539"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{TenSanPham}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="250" y="0" width="100" height="30" uuid="ad74d864-8373-4c1e-993c-009eb623002c">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e677d85d-6496-4f42-96b0-75eb5d9eb98c"/>
+				</reportElement>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{GiaBanF}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="370" y="0" width="80" height="30" uuid="01e0762a-1df1-448c-affe-3db539e8a861">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="efd98bba-c397-458a-8877-b029061a4700"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{SoLuong}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="460" y="1" width="100" height="30" uuid="15935595-62ac-4e1d-bad9-08116a56f8a6">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="eac2f3d1-056b-42a8-a53c-8a5dedb5dfaf"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{LoaiSanPham}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>
